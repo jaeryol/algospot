@@ -15,26 +15,50 @@ import java.io.InputStreamReader;
  *
  */
 public class Main {
-	
+
 	private static final int START_CHAR = 97;
 	private static String[] friends;
-	
+	private static int[][] cooksPerFriend;
+	private static int min=999;
+
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int caseCount = Integer.parseInt(br.readLine());
-		
+
 		for(int i=0;i<caseCount;i++){
 			String friAndCook = br.readLine();
 			int friendsCount = Integer.parseInt(friAndCook.split(" ")[0]);
 			int cooksCount = Integer.parseInt(friAndCook.split(" ")[1]);
 			friends = br.readLine().split(" ");
-			
+
 			for(int j=0;j<cooksCount;j++){
-				
+
+			}
+		}
+	}
+
+	public static void cook(int currentCount, boolean[] eated){
+		if(currentCount >= min){
+			return;
+		}
+
+		int notEatedFriend=-1;
+		for(int i=0;i<friends.length;i++){
+			if(!eated[i]){
+				notEatedFriend=i;
 			}
 		}
 
+		if(notEatedFriend == -1){
+			min = currentCount;
+			return;
+		}
 		
-		
+		int[] cooks = cooksPerFriend[notEatedFriend];
+		for(int i=0;i<cooks.length;i++){
+			int cook = cooks[i];
+		}	
+
+
 	}
 }
