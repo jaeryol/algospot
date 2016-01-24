@@ -1,4 +1,4 @@
-package encrypt;
+package algospot.encrypt;
 
 import java.io.BufferedReader;
 import java.io.IOException;

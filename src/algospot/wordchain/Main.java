@@ -1,4 +1,4 @@
-package wordchain;
+package algospot.wordchain;
 
 /**
  * @author jojoldu@zuminternet.com

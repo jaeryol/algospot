@@ -1,4 +1,4 @@
-package fortress;
+package algospot.fortress;
 
 /**
  * Created by dwlee on 2015-11-16.

@@ -1,4 +1,4 @@
-package asymtiling;
+package algospot.asymtiling;
 
 import java.io.BufferedReader;
 import java.io.IOException;

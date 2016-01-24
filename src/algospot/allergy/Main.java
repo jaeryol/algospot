@@ -4,7 +4,7 @@
  * Proprietary and confidential
  * Written by Lee DongUk, jojoldu@zuminternet.com, 2015. 10. 28.
  */
-package allergy;
+package algospot.allergy;
 
 import java.io.BufferedReader;
 import java.io.IOException;

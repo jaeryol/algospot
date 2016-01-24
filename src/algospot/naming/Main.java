@@ -1,4 +1,4 @@
-package naming;
+package algospot.naming;
 
 import java.io.BufferedReader;
 import java.io.IOException;
