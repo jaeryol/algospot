@@ -1,7 +1,5 @@
 package backjun.graph.termproject;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -13,8 +11,8 @@ import java.util.Scanner;
 public class Main {
 
     public static int[] numbers = new int[100001];
-    public static int[] positions = new int[100001];
-    public static int[] visited = new int[100001];
+    public static int[] moveCounts = new int[100001];
+    public static int[] teams = new int[100001];
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -25,34 +23,37 @@ public class Main {
 
             for(int j=1;j<=size;j++){
                 numbers[j] = sc.nextInt();
-                positions[j] = 0;
-                visited[j] = 0;
+                moveCounts[j] = 0;
+                teams[j] = 0;
             }
 
             int result=0;
-            for(int j=0;j<=size;j++){
-                if(positions[i] == 0){
-                    result += dfs(i, 1, i);
+            for(int j=1;j<=size;j++){
+                if(moveCounts[j] == 0){
+                    result += dfs(j, 1, j); // 팀에 포함안된 인원
                 }
             }
-            System.out.println(size - result);
+            System.out.println(size - result); //전체 인원 - 포함된 인원
         }
     }
 
-    /*
-       1. 시작점이 곧 끝점이어야 한다.
-       2. 시작점을 다시 만나기전에 이미 방문한 점을 만나면 안된다.
-       3. 이미 완전 한조가 되었다면 제외
-     */
-    public static int dfs(int current, int count, int step){
-        if(positions[current] != 0){
-            if(visited[current] != step){
+    public static int dfs(int current, int moveCount, int start){
+        if(moveCounts[current] != 0){ //이미 방문한적이 있고
+            if(teams[current] != start){ //같은조가 아니라면
                 return 0;
             }
-            return count - positions[current];
+            /*
+                총 이동횟수 - 현재 숫자까지의 이동횟수
+                즉 1에서 시작하여 3에 도착할 경우 3은 다시 본인을 바라보므로
+                current가 3일때,
+                moveCount는 3이며 (1->3->3)
+                moveCounts[3]은 2이다. (처음 3에 도착할때 이동횟수가 2이므로)
+                이럴경우 moveCount-moveCounts[current] = 1이 된다
+             */
+            return moveCount - moveCounts[current];
         }
-        positions[current] = count;
-        visited[current] = step;
-        return dfs(numbers[current], count+1, step);
+        moveCounts[current] = moveCount;
+        teams[current] = start;
+        return dfs(numbers[current], moveCount+1, start);
     }
 }
