@@ -10,7 +10,22 @@ import java.util.Queue;
 /**
  * Created by jojoldu@gmail.com on 2016-03-02.
  */
+/*
+    https://www.acmicpc.net/problem/2667
+ */
 public class Main {
+    static class Pair {
+        int first;
+        int second;
+
+        public Pair() {
+        }
+
+        public Pair(int first, int second) {
+            this.first = first;
+            this.second = second;
+        }
+    }
 
     static int[][] map;
     static int[][] visited;
@@ -22,6 +37,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         mapSize = Integer.parseInt(br.readLine());
+        map = new int[mapSize][mapSize];
         visited = new int[mapSize][mapSize];
         String line;
 
@@ -33,11 +49,12 @@ public class Main {
             }
         }
 
+        //단지 구성하기
         int count=0;
         for(int i=0;i<mapSize;i++){
             for(int j=0;j<mapSize;j++){
                 if(map[i][j] == 1 && visited[i][j] == 0){
-                    bfs(i, j, ++count);
+                    bfs(i, j, ++count); //연결이 끊긴곳이 있다면  ++단지번호
                 }
             }
         }
@@ -83,15 +100,3 @@ public class Main {
     }
 }
 
-class Pair {
-    int first;
-    int second;
-
-    public Pair() {
-    }
-
-    public Pair(int first, int second) {
-        this.first = first;
-        this.second = second;
-    }
-}
