@@ -1,6 +1,8 @@
 package backjun.graph.termproject;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Created by jojoldu@zuminternet.com on 2016-02-24.
@@ -14,15 +16,15 @@ public class Main {
     public static int[] moveCounts = new int[100001];
     public static int[] teams = new int[100001];
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int inputCount = sc.nextInt();
+        int inputCount = Integer.parseInt(br.readLine());
         for(int i=0;i<inputCount;i++){
-            int size = sc.nextInt();
-
+            int size = Integer.parseInt(br.readLine());
+            String[] inputNumbers = br.readLine().split(" ");
             for(int j=1;j<=size;j++){
-                numbers[j] = sc.nextInt();
+                numbers[j] = Integer.parseInt(inputNumbers[j-1]);
                 moveCounts[j] = 0;
                 teams[j] = 0;
             }
