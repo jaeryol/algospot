@@ -3,6 +3,8 @@ package backjun.graph.islecount;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Created by jojoldu@zuminternet.com on 2016-03-04.
@@ -28,6 +30,8 @@ public class Main {
 
     private static int[] dx = { 0, 0, 1,-1, 1, 1,-1,-1 };
     private static int[] dy = { 1,-1, 0, 0, 1,-1, 1,-1 };
+    static int[][] map;
+    static int[][] visited;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader((new InputStreamReader(System.in)));
@@ -48,6 +52,26 @@ public class Main {
     }
 
     public static void bfs(int x, int y){
+        Queue<Pair> queue = new LinkedList<Pair>();
+        queue.add(new Pair(x, y));
+        visited[x][y] = count;
+        Pair p;
+        while(!queue.isEmpty()){
+            p = queue.remove();
+            x = p.first;
+            y = p.second;
 
+            for(int j=0;j<4;j++){
+                int nx = x+dx[j];
+                int ny = y+dy[j];
+
+                if(nx >= 0 && nx < mapSize && ny >= 0 && ny < mapSize){
+                    if(map[nx][ny] == 1 && visited[nx][ny] == 0){
+                        queue.add(new Pair(nx, ny));
+                        visited[nx][ny] = count;
+                    }
+                }
+            }
+        }
     }
 }
