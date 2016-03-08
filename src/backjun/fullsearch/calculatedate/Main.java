@@ -1,4 +1,4 @@
-package backjun.allsearch.calculatedate;
+package backjun.fullsearch.calculatedate;
 
 import java.io.BufferedReader;
 import java.io.IOException;
