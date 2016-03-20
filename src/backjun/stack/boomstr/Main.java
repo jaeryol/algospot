@@ -44,16 +44,16 @@ public class Main {
                     stack.push(new Pair(i, 0));
                 }else{
                     if(!stack.empty()){//폭발문자열의 0번째 문자와 현재문자가 다르지만, stack이 채워져있으면
-                        Pair pair = stack.peek();//stack에 채워질 다음 폭발 문자열 index
-                        if(current == boomStr.charAt(pair.boomIndex+1)){ //stack에 채워질 다음 폭발 문자열 index가 폭발문자열의 마지막 index라면
+                        Pair pair = stack.peek();
+                        if(current == boomStr.charAt(pair.boomIndex+1)){ //현재문자와 stack에 채워질 문자와 같다면
                             stack.push(new Pair(i, pair.boomIndex+1));
 
-                            if(pair.boomIndex+1 == boomLength-1){
+                            if(pair.boomIndex+1 == boomLength-1){ //마지막 폭발 문자열이라면 폭발문자열 길이만큼 stack에서 지운다
                                 for(int j=0;j<boomLength;j++){
                                     removes[stack.pop().strIndex] = true;
                                 }
                             }
-                        }else{
+                        }else{ //현재문자와 stack에 채워질 문자와 다르면 stack을 비운다..
                             while(!stack.empty()){
                                 stack.pop();
                             }
