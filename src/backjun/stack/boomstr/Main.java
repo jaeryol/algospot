@@ -24,44 +24,38 @@ public class Main {
         }
     }
 
-    private static boolean[] removes;
-    private static int boomLength;
-    private static Stack<Pair> stack = new Stack<Pair>();
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input = br.readLine();
         String boomStr = br.readLine();
         int length = input.length();
-        removes = new boolean[length+1];
-        boomLength = boomStr.length();
-        char c;
+        boolean[] removes = new boolean[length+1];
+        int boomLength = boomStr.length();
+        Stack<Pair> stack = new Stack<Pair>();
+        char current;
         String result;
 
         if(boomStr.length() == 1){ //폭발 문자열이 1이면 그냥 replace
             result = input.replace(boomStr, "");
-        }else{
+        }else {
             for(int i=0;i<length;i++){
-                c = input.charAt(i);
-                if(c == boomStr.charAt(0)){ //폭발 문자열의 0번째 문자와 현재 문자가 같으면
+                current = input.charAt(i);
+                if(current == boomStr.charAt(0)){ //폭발 문자열의 0번째 문자와 현재 문자가 같으면
                     stack.push(new Pair(i, 0));
                 }else{
                     if(!stack.empty()){//폭발문자열의 0번째 문자와 현재문자가 다르지만, stack이 채워져있으면
-                        int boomIndex = stack.peek().boomIndex+1; //stack의 폭발문자열 index + 1
-                        /*
+                        Pair pair = stack.peek();//stack에 채워질 다음 폭발 문자열 index
+                        if(current == boomStr.charAt(pair.boomIndex+1)){ //stack에 채워질 다음 폭발 문자열 index가 폭발문자열의 마지막 index라면
+                            stack.push(new Pair(i, pair.boomIndex+1));
 
-                         */
-                        if(boomIndex == boomLength-1){
-                            stack.push(new Pair(i, 0));
-
-                            if(boomStr.charAt(boomIndex) == c){
-                                popAllBoomStr(true);
-                            }else{
-                                popAllBoomStr(false);
+                            if(pair.boomIndex+1 == boomLength-1){
+                                for(int j=0;j<boomLength;j++){
+                                    removes[stack.pop().strIndex] = true;
+                                }
                             }
                         }else{
-                            if(boomStr.charAt(boomIndex) == c){
-                                stack.push(new Pair(i, boomIndex));
+                            while(!stack.empty()){
+                                stack.pop();
                             }
                         }
 
@@ -76,12 +70,8 @@ public class Main {
             }
             result = sb.toString();
         }
-        System.out.println("".equals(result)? "FRULA" : result);
+        result = result.length()==0? "FRULA" : result;
+        System.out.println(result);
     }
 
-    private static void popAllBoomStr(boolean flag){
-        for(int i=0;i<boomLength;i++){
-            removes[stack.pop().strIndex] = flag;
-        }
-    }
 }
