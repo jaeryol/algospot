@@ -3,77 +3,79 @@ package backjun.kmp.advertising;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 /**
  * Created by jojoldu@zuminternet.com on 2016-05-03.
  */
 /*
     https://www.acmicpc.net/problem/1305
+
+    테스트케이스
     6
     aabaaa
-    입력시 결과는 aaba 즉,4
+    입력시 결과는 aaba: 4
 
     6
     baaaba
-    입력시 결과는 baaa 즉,4
+    입력시 결과는 baaa: 4
 
     5
     aaaaa
-    입력시 결과는 a 즉,1
+    입력시 결과는 a: 1
 
-    접두사배열과 접미사배열을 차례로 비교해서 동일 index에서 접두사와 접미사가 같으면
-    전체 길이 -index
+    8
+    abaabaab
+    입력시 결과는 aba: 3
+
+
 
  */
 public class Main {
 
-    private static String[] prefixArray;
-    private static String[] suffixArray;
     private static int line;
+    private static String base;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         line = Integer.parseInt(br.readLine());
-        String current = br.readLine();
-        prefixArray = getPrefixArray(current);
-        suffixArray = getSuffixArray(current);
-        int result = line;
-        boolean boundary = false;
+        base = br.readLine();
 
-        for(int i=0;i<line-1;i++){
-            if(prefixArray[i].equals(suffixArray[i])){
-                boundary = true;
-            }else{
-                if(boundary){
-                    boundary = false;
-                    result = line - i;
-                    break;
-                }
+        for (int i = 0; i < line - 1; i++) {
+            int result = kmp(base.substring(0, i+1));
+            if(result > 0){
+                System.out.println(result);
+                break;
             }
         }
-        if(boundary){
-            System.out.println(1);
-        }else{
-            System.out.println(result);
-        }
     }
 
-    //접두사 배열
-    private static String[] getPrefixArray(String input){
-        String[] prefixArray = new String[input.length()];
-        for(int i=0;i<input.length();i++){
-            prefixArray[i] = input.substring(0,i+1);
-        }
-        return prefixArray;
-    }
+    private static int kmp(String key) {
+        int length = key.length();
+        int currentIndex = 0;
+        int result = 0;
+        String current;
+        while (true) {
+            int nextIndex = currentIndex+length;
 
-    //접미사 배열
-    private static String[] getSuffixArray(String input){
-        String[] suffixArray = new String[input.length()];
-        for(int i=0;i<input.length();i++){
-            suffixArray[i] = input.substring(input.length()-(i+1), input.length());
+            if(nextIndex > base.length()){
+                int remainderLength = base.length() - currentIndex;
+                String keyRemainder = key.substring(0, remainderLength);
+                String baseRemainder = base.substring(currentIndex, base.length());
+
+                if(keyRemainder.equals(baseRemainder)){
+                    result = length;
+                }
+
+                break;
+            }
+
+            current = base.substring(currentIndex, nextIndex);
+            if(!key.equals(current)){
+                break;
+            }
+            currentIndex += length;
         }
-        return suffixArray;
+
+        return result;
     }
 }
