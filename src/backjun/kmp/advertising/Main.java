@@ -3,6 +3,7 @@ package backjun.kmp.advertising;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 /**
  * Created by jojoldu@zuminternet.com on 2016-05-03.
@@ -34,48 +35,38 @@ public class Main {
 
     private static int line;
     private static String base;
+    private static int[] pi;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         line = Integer.parseInt(br.readLine());
         base = br.readLine();
-
-        for (int i = 0; i < line - 1; i++) {
-            int result = kmp(base.substring(0, i+1));
-            if(result > 0){
-                System.out.println(result);
-                break;
-            }
-        }
+        pi =  getPi(base);
+        System.out.println(line - pi[line]);
     }
 
-    private static int kmp(String key) {
-        int length = key.length();
-        int currentIndex = 0;
-        int result = 0;
-        String current;
-        while (true) {
-            int nextIndex = currentIndex+length;
+    /**
+     * i는 접미부의 위치, j는 접두부의 위치
+     * string[i] == string[j] 이면 i++, j++, pi[i] = j
+     * string[i] != string[j] 이면 j = pi[j] (pi[j] 는 구간 0~ㅓ-1의 접두부의 위치를 가지고 있다.)
+     *
+     */
+    private static int[] getPi(String p){
+        int m = p.length();
+        int[] pi = new int[m+1];
+        int i=0, j=-1;
+        pi[0] = -1;
 
-            if(nextIndex > base.length()){
-                int remainderLength = base.length() - currentIndex;
-                String keyRemainder = key.substring(0, remainderLength);
-                String baseRemainder = base.substring(currentIndex, base.length());
-
-                if(keyRemainder.equals(baseRemainder)){
-                    result = length;
-                }
-
-                break;
+        while(i<m) {
+            if(j == -1 || (p.charAt(i) == p.charAt(j))){
+                i++;
+                j++;
+                pi[i] = j;
+            }else {
+                j = pi[j];
             }
-
-            current = base.substring(currentIndex, nextIndex);
-            if(!key.equals(current)){
-                break;
-            }
-            currentIndex += length;
         }
 
-        return result;
+        return pi;
     }
 }

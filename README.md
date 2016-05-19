@@ -8,5 +8,6 @@
 ## 풀이 리스트
 ### 백준 알고리즘
 #### KMP
-* [cubeditor (1701)](https://github.com/jojoldu/algospot/blob/master/src/backjun/kmp/cubeditor/Main.java)
-* [search (1786)] (./src/backjun/kmp/search/Main.java)
+* [cubeditor (1701)](./src/backjun/kmp/cubeditor/Main.java)
+* [검색 (1786)] (./src/backjun/kmp/search/Main.java)
+* [광고 (1305)] (./src/backjun/kmp/advertising/Main.java)
