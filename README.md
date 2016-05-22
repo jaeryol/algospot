@@ -11,3 +11,9 @@
 * [cubeditor (1701)](./src/backjun/kmp/cubeditor/Main.java)
 * [검색 (1786)] (./src/backjun/kmp/search/Main.java)
 * [광고 (1305)] (./src/backjun/kmp/advertising/Main.java)
+
+#### 스택
+* [문자열폭발 (9935)] (./src/backjun/stack/boomstr/Main.java)
+
+#### 다이나믹 프로그래밍
+* [피보나치 함수 (1993)] (./src/backjun/dp/fibonacci/Main.java)
