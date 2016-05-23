@@ -8,13 +8,14 @@
 ## 풀이 리스트
 ### 백준 알고리즘
 #### KMP
-* [cubeditor (1701)](./src/backjun/kmp/cubeditor/Main.java)
-* [검색 (1786)] (./src/backjun/kmp/search/Main.java)
-* [광고 (1305)] (./src/backjun/kmp/advertising/Main.java)
+* [cubeditor (1701)](./src/backjoon/kmp/cubeditor/Main.java)
+* [검색 (1786)] (./src/backjoon/kmp/search/Main.java)
+* [광고 (1305)] (./src/backjoon/kmp/advertising/Main.java)
 
 #### 스택
-* [문자열폭발 (9935)] (./src/backjun/stack/boomstr/Main.java)
+* [문자열폭발 (9935)] (./src/backjoon/stack/boomstr/Main.java)
 
 #### 다이나믹 프로그래밍
-* [피보나치 함수 (1993)] (./src/backjun/dp/fibonacci/Main.java)
-* [1로 만들기 (1463)] (./src/backjun/dp/makeon/Main.java)
+* [피보나치 함수 (1993)] (./src/backjoon/dp/fibonacci/Main.java)
+* [1로 만들기 (1463)] (./src/backjoon/dp/makeon/Main.java)
+* [1,2,3 더하기 (9095)] (./src/backjoon/dp/numbersum/Main.java)
