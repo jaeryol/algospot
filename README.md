@@ -22,7 +22,11 @@
 * [붕어빵 판매하기 (11052)] (./src/backjoon/dp/fishbread/Main.java)
 
 #### 그래프
-* [DFS와 BFS] (./src/backjoon/graph/dfsandbfs/Main.java)
-* [단지번호붙이기] (./src/backjoon/graph/danji/Main.java) 
-* [연결 요소의 개수] (./src/backjoon/graph/linkcount/Main.java)
-* [텀 프로젝트] (./src/backjoon/graph/termproject/Main.java)
+* [DFS와 BFS (1260)] (./src/backjoon/graph/dfsandbfs/Main.java)
+* [단지번호붙이기 (2667)] (./src/backjoon/graph/danji/Main.java) 
+* [연결 요소의 개수 (11724)] (./src/backjoon/graph/linkcount/Main.java)
+* [텀 프로젝트 (9466)] (./src/backjoon/graph/termproject/Main.java)
+
+#### 문자열 처리
+* [상수 (2908)] (./src/backjoon/string/constant/Main.java)
+* [다이얼 (5622)] (./src/backjoon/string/dial/Main.java)
