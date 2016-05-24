@@ -1,12 +1,12 @@
 # 소개
 알고스팟 & 백준 알고리즘 문제 풀이용
 
-## 계기
+# 계기
 사내 승호시험 대비 및 기초 알고리즘 강화를 위해 시작  
 원래 알고스팟으로 시작했다가 최백준씨의 오프라인 알고리즘 강의 수강후 [백준 알고리즘] (https://www.acmicpc.net) 으로 변경
 
-## 풀이 리스트
-### 백준 알고리즘
+# 풀이 리스트
+## 백준 알고리즘
 #### KMP
 * [cubeditor (1701)](./src/backjoon/kmp/cubeditor/Main.java)
 * [검색 (1786)] (./src/backjoon/kmp/search/Main.java)
@@ -21,6 +21,7 @@
 * [1,2,3 더하기 (9095)] (./src/backjoon/dp/numbersum/Main.java)
 * [붕어빵 판매하기 (11052)] (./src/backjoon/dp/fishbread/Main.java)
 * [쉬운 계단수 (10844)] (./src/backjoon/dp/easystairs/Main.java)
+* [오르막 수 (11057)] (./src/backjoon/dp/ascentnumber/Main.java)
 
 #### 그래프
 * [DFS와 BFS (1260)] (./src/backjoon/graph/dfsandbfs/Main.java)
