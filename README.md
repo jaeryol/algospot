@@ -23,6 +23,7 @@
 * [쉬운 계단수 (10844)] (./src/backjoon/dp/easystairs/Main.java)
 * [오르막 수 (11057)] (./src/backjoon/dp/ascentnumber/Main.java)
 * [이친수 (2193)] (./src/backjoon/dp/pinarynumber/Main.java)
+* [이동하기 (11048] (./src/backjoon/dp/move/Main.java)
 
 #### 그래프
 * [DFS와 BFS (1260)] (./src/backjoon/graph/dfsandbfs/Main.java)
