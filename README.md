@@ -3,7 +3,7 @@
 
 # 계기
 사내 승호시험 대비 및 기초 알고리즘 강화를 위해 시작  
-원래 알고스팟으로 시작했다가 최백준씨의 오프라인 알고리즘 강의 수강후 [백준 알고리즘] (https://www.acmicpc.net) 으로 변경
+원래 [알고스팟](https://www.algospot.com/)으로 시작했다가 최백준씨의 오프라인 알고리즘 강의 수강후 [백준 알고리즘] (https://www.acmicpc.net) 으로 변경
 
 # 풀이 리스트
 ## 백준 알고리즘
@@ -27,10 +27,18 @@
 * [팰린드롬? (10942)] (./src/backjoon/dp/palindrome/Main.java)
 
 #### 그래프
+
+##### 설명
+* 그래프 표현 + 탐색으로 나누어 해결 
+* 표현 : 인접행렬, 인접리스트, 간선 리스트
+* 탐색 : DFS(스택), BFS(큐)
+
+##### 풀이
 * [DFS와 BFS (1260)] (./src/backjoon/graph/dfsandbfs/Main.java)
 * [단지번호붙이기 (2667)] (./src/backjoon/graph/danji/Main.java) 
 * [연결 요소의 개수 (11724)] (./src/backjoon/graph/linkcount/Main.java)
 * [텀 프로젝트 (9466)] (./src/backjoon/graph/termproject/Main.java)
+* [반복수열 (2331)] (./src/backjoon/graph/repeatseq/Main.java)
 
 #### 문자열 처리
 * [상수 (2908)] (./src/backjoon/string/constant/Main.java)

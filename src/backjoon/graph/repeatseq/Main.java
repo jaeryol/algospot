@@ -5,6 +5,10 @@ import java.util.Scanner;
 /**
  * Created by jojoldu@gmail.com on 2016-03-01.
  */
+
+/**
+ * https://www.acmicpc.net/problem/2331
+ */
 public class Main {
     static int[] checked = new int[10000001];
 
